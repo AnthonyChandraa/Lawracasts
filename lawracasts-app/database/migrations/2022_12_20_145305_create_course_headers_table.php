@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('course_headers', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(\Illuminate\Support\Str::uuid());
-            $table->string('first_name', 30);
-            $table->string('last_name', 30);
-            $table->string('about')->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('image_url');
-            $table->date('date_of_birth');
-            $table->boolean('is_admin');
-            $table->rememberToken();
+            $table->foreignUuid('user_id')->constrained();
+            $table->foreignUuid('topic_id')->constrained();
+            $table->string('title', 50);
+            $table->string('description');
+            $table->integer('view_count');
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('course_headers');
     }
 };
