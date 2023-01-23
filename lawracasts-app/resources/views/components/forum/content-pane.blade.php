@@ -21,8 +21,10 @@
                 viewcount="{{ $f->view_count }}" :id="$f->id" />
         @endforeach
     </div>
-    <div class="mt-2" id="paginator">
-        {{ $forums->links() }}
+    <div class="mt-2 flex justify-between" id="paginator">
+        <div class=""></div>
+        <div class=""></div>
+        {{ $forums->links('vendor.pagination.default') }}
     </div>
 
 </div>
