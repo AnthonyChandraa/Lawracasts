@@ -16,7 +16,7 @@
             </button>
         @endif
     </div>
-    <div class="max-w-7xl mx-auto grid grid-cols-2">
+    <div class="max-w-fit mx-auto grid grid-cols-2">
         @foreach($courseHeaders as $ch)
             <x-course.course-item :course="$ch"/>
         @endforeach
