@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             ForumSeeder::class,
             CommentSeeder::class,
             PodcastSeeder::class,
-            UserLogSeeder::class,
             CourseHeaderSeeder::class,
             CourseDetailSeeder::class,
         ]);

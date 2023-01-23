@@ -111,9 +111,9 @@ class ForumController extends Controller
 
     public function addForum(Request $request){
         $validator = Validator::make($request->all(),[
-            'title' => 'required',
-            'content' => 'required',
-            'topic' => 'required'
+            'title' => 'required|max:255',
+            'content' => 'required|max:255',
+            'topic' => 'required|exists:topics'
         ]);
 
         if($validator->fails()){

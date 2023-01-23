@@ -48,8 +48,8 @@ class PodcastController extends Controller
 
     public function add_podcast(Request $request){
         $validator = Validator::make($request->all(),[
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|max:50',
+            'description' => 'required|max:255',
             'file' => 'required|max:10000'
         ]);
 
