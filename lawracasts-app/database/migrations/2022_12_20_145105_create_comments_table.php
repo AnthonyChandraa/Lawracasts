@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(\Illuminate\Support\Str::uuid());
-            $table->foreignUuid('user_id')->constrained();
-            $table->foreignUuid('forum_id')->constrained();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignUuid('forum_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('content');
-            $table->integer('like_count');
             $table->timestamps();
         });
     }

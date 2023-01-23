@@ -25,7 +25,7 @@ class TopicSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid(),
-                'name' => 'Laravel Authentication',
+                'name' => 'Authentication',
                 'image_url' => 'topics/authentication.svg',
                 'created_at' => now()
             ],

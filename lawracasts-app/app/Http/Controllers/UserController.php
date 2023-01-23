@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -78,9 +79,53 @@ class UserController extends Controller
         return redirect()->route('index');
     }
 
-    public function index_profile(){
-        return view('pages.profile.profile');
+    public function index_profile($id){
+        $accessToken = session('accessToken');
+        return view('pages.profile.profile', compact('accessToken'));
     }
 
+    public function update_profile(Request $request){
+        $validator = Validator::make($request->all(),[
+            'first_name' => 'required|min:4|max:20',
+            'last_name' => 'required|min:4|max:20',
+            'email' => 'required|email|unique:users,email,'.Auth::user()->id,
+            'file4' => 'file|mimes:jpg,png|max:5000'
+        ]);
+
+        if($validator->fails()){
+            notify()->error($validator->errors()->first());
+            return redirect()->back()->withErrors($validator, 'update-profile')->withInput();
+        }
+
+        if($request->hasFile('file4')){
+            $path = $request->file('file4')->store('profiles', 'public');
+            User::query()->where('id', '=', Auth::user()->id)
+                ->update([
+                    'first_name' => $request->input('first_name'),
+                    'last_name' => $request->input('last_name'),
+                    'email' => $request->input('email'),
+                    'image_url' => $path,
+                    'updated_at' => now()
+                ]);
+        }else{
+            User::query()->where('id', '=', Auth::user()->id)
+                ->update([
+                    'first_name' => $request->input('first_name'),
+                    'last_name' => $request->input('last_name'),
+                    'email' => $request->input('email'),
+                    'updated_at' => now()
+                ]);
+        }
+
+        notify()->success('Profile Updated!');
+        return redirect()->back();
+    }
+
+    public function getToken(){
+        $token = Auth::user()->token();
+        $accessToken = Auth::user()->createToken('AccessToken')->accessToken;
+        session()->put('accessToken', $accessToken);
+        return redirect()->route('index_profile', Auth::user()->id);
+    }
 
 }

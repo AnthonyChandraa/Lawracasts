@@ -23,7 +23,7 @@ class ForumSeeder extends Seeder
 
         $css = Topic::query()->select('id')->where('name', '=', 'CSS')->first()->id;
         $php = Topic::query()->select('id')->where('name', '=', 'PHP')->first()->id;
-        $auth = Topic::query()->select('id')->where('name', '=', 'Laravel Authentication')->first()->id;
+        $auth = Topic::query()->select('id')->where('name', '=', 'Authentication')->first()->id;
         $eloquent = Topic::query()->select('id')->where('name', '=', 'Eloquent')->first()->id;
         $blade = Topic::query()->select('id')->where('name', '=', 'Blade')->first()->id;
         $mysql = Topic::query()->select('id')->where('name', '=', 'MySQL')->first()->id;
@@ -34,147 +34,168 @@ class ForumSeeder extends Seeder
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $css,
-                'content' => 'How To Center A Div ?',
+                'title' => 'How To Center A Div ?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $css,
-                'content' => 'How To Use Display Grid in CSS?',
+                'title' => 'How To Use Display Grid in CSS?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $css,
-                'content' => 'How To Style Input type file?',
+                'title' => 'How To Style Input type file?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $css,
-                'content' => 'How To Make a Dropdown without JS?',
+                'title' => 'How To Make a Dropdown without JS?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $php,
-                'content' => 'How To make a variable in PHP?',
+                'title' => 'How To make a variable in PHP?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $php,
-                'content' => 'How To make an associative array in PHP?',
+                'title' => 'How To make an associative array in PHP?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $php,
-                'content' => 'How To convert integer to string in PHP?',
+                'title' => 'How To convert integer to string in PHP?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $php,
-                'content' => 'How To check the length of an array?',
+                'title' => 'How To check the length of an array?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $auth,
-                'content' => 'How To Implement Remember Me Feature?',
+                'title' => 'How To Implement Remember Me Feature?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $auth,
-                'content' => 'How To Set Remember Me Duration in Laravel?',
+                'title' => 'How To Set Remember Me Duration in Laravel?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $auth,
-                'content' => 'How To check whether an user has logged in or not?',
+                'title' => 'How To check whether an user has logged in or not?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $auth,
-                'content' => 'What is inside the Laravel Auth Facade?',
+                'title' => 'What is inside the Laravel Auth Facade?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $eloquent,
-                'content' => 'How To define Eloquent Relationship?',
+                'title' => 'How To define Eloquent Relationship?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $eloquent,
-                'content' => 'What is pivot table in Eloquent?',
+                'title' => 'What is pivot table in Eloquent?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $eloquent,
-                'content' => 'How to Query using Eloquent and Query Builder?',
+                'title' => 'How to Query using Eloquent and Query Builder?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $blade,
-                'content' => 'How to create Blade Components?',
+                'title' => 'How to create Blade Components?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $blade,
-                'content' => 'How to loop HTML element using blade?',
+                'title' => 'How to loop HTML element using blade?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $blade,
-                'content' => 'How to change HTML title using blade?',
+                'title' => 'How to change HTML title using blade?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $mysql,
-                'content' => 'What is the naming convention of MySQL?',
+                'title' => 'What is the naming convention of MySQL?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $mysql,
-                'content' => 'What is the equivalent of boolean in MySQL?',
+                'title' => 'What is the equivalent of boolean in MySQL?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
             [
                 'id' => Str::uuid(),
                 'user_id' => $memberID,
                 'topic_id' => $mysql,
-                'content' => 'Can we store image in MySQL?',
+                'title' => 'Can we store image in MySQL?',
+                'content' => 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
                 'created_at' => now()
             ],
         ]);

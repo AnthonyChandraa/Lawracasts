@@ -9,6 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    public $keyType = 'string';
+
     public function forum(){
         return $this->belongsTo(Forum::class);
     }

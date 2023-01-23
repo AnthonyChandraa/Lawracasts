@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_logs', function (Blueprint $table) {
-            $table->foreignUuid('user_id')->constrained()->primary()->default(\Illuminate\Support\Str::uuid());
+            $table->foreignUuid('user_id')->constrained()->primary()->default(\Illuminate\Support\Str::uuid())->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('ip_address',20);
             $table->timestamps();
         });

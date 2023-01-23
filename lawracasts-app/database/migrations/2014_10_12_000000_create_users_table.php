@@ -17,11 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary()->default(\Illuminate\Support\Str::uuid());
             $table->string('first_name', 30);
             $table->string('last_name', 30);
-            $table->string('about')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('image_url');
-            $table->date('date_of_birth');
             $table->boolean('is_admin');
             $table->rememberToken();
             $table->timestamps();

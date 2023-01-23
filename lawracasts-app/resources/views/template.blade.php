@@ -24,6 +24,21 @@
         [x-cloak] {
             display: none !important;
         }
+
+        /* Override the color of the pagination links */
+        .pagination .page-link {
+            color: blue !important;
+        }
+
+        /* Override the background color of the active pagination link */
+        .pagination .page-item.active .page-link {
+            background-color: blue !important;
+        }
+
+        /* Override the hover state of the pagination links */
+        .pagination .page-link:hover {
+            background-color: blue !important;
+        }
     </style>
 </head>
 <body x-data="{ openRegister: false,
@@ -32,11 +47,27 @@
     openLogin: false,
     toggleLogin() {this.openLogin =! this.openLogin},
     get isLoginOpen() {return this.openLogin},
-    }" class="min-h-screen w-full flex flex-col justify-between bg-gray-100">
+    openAddThread: false,
+    toggleAddThread() {this.openAddThread =! this.openAddThread},
+    get isAddThreadOpen () {return this.openAddThread},
+    openAddPodcast: false,
+    toggleAddPodcast() {this.openAddPodcast =! this.openAddPodcast},
+    get isAddPodcastOpen () {return this.openAddPodcast},
+    openEditPodcast: false,
+    toggleEditPodcast() {this.openEditPodcast =! this.openEditPodcast},
+    get isEditPodcastOpen () {return this.openEditPodcast},
+    openAddCourseHeader: false,
+    toggleAddCourseHeader() {this.openAddCourseHeader =! this.openAddCourseHeader},
+    get isAddCourseHeaderOpen () {return this.openAddCourseHeader},
+    openAddNewVideo : false,
+    toggleAddNewVideo() {this.openAddNewVideo =! this.openAddNewVideo},
+    get isAddNewVideo () {return this.openAddNewVideo}
+    }" class="min-h-screen w-full flex flex-col justify-between bg-gray-800">
     @include('notify::components.notify')
     <x:notify-messages/>
     <x-forms.login/>
     <x-forms.register/>
+    <x-podcast.add-podcast-form/>
     <x-navbar/>
     @yield('content')
     <x-footer/>

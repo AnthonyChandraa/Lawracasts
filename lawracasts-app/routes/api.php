@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\apicontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/forums', [apicontroller::class, 'get_forum'])->middleware('auth:api');
+Route::get('/forums-date/{date}', [apicontroller::class, 'get_forum_based_on_date'])->middleware('auth:api');
+Route::get('/forums-topic/{topic}', [apicontroller::class, 'get_forum_based_on_topic'])->middleware('auth:api');

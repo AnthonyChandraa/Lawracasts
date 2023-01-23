@@ -18,12 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('video_url');
             $table->boolean('is_published');
-            $table->integer('like_count');
-            $table->integer('episode')->nullable();
             $table->timestamps();
 
             $table->primary(['course_id', 'title', 'video_url']);
-            $table->foreign('course_id')->references('id')->on('course_headers');
+            $table->foreign('course_id')->references('id')->on('course_headers')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

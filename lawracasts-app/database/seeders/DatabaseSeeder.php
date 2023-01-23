@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             UserLogSeeder::class,
             CourseHeaderSeeder::class,
             CourseDetailSeeder::class,
-            WatchlistSeeder::class
         ]);
     }
 }
