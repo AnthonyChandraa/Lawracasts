@@ -67,8 +67,9 @@
     toggleAddNewVideo() { this.openAddNewVideo = !this.openAddNewVideo },
     get isAddNewVideo() { return this.openAddNewVideo }
 }" class="">
-    <div class="fixed w-screen h-screen z-10 bg-gray-800" id="particles-js">
-    </div>
+    {{-- Particle JS --}}
+    <x-particles />
+    {{-- ------------------ --}}
     <div class="min-h-screen relative z-20 w-full flex flex-col justify-between ">
         @include('notify::components.notify')
         <x:notify-messages />

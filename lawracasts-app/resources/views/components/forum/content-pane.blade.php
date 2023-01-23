@@ -3,7 +3,7 @@
         <input type="text" name="search" id="search"
             class="shadow-sm focus:ring-sky-600 h-10 focus:border-indigo-500
         block w-1/3 bg-gray-700 text-white
-         sm:text-sm border-gray-300 rounded-lg"
+         sm:text-sm border-gray-300 rounded-lg mx-2"
             placeholder="Begin Your Search...">
         <button type="submit" class="p-2 border rounded-lg hover:bg-sky-900">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(255,255,255)"

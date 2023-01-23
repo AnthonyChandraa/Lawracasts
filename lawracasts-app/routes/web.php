@@ -22,51 +22,51 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::prefix('topic')->controller(TopicController::class)->group(function (){
+Route::prefix('topic')->controller(TopicController::class)->group(function () {
     Route::get('view', 'index')
         ->name('index_topic');
 });
 
-Route::prefix('forum')->controller(ForumController::class)->group(function (){
-   Route::get('view', 'index')
-       ->name('index_forum');
-   Route::get('popular', 'index_popular')
-       ->name('index_popular');
-   Route::get('no-replies', 'index_no_replies')
-       ->name('index_no_replies');
-   Route::get('detail/{id}', 'index_detail')
-       ->name('index_detail');
-   Route::get('search', 'index_search')
-       ->name('index_search_forum');
-   Route::post('add', 'addForum')
-       ->name('add_forum');
-   Route::post('delete', 'deleteForum')
-       ->name('delete_forum');
+Route::prefix('forum')->controller(ForumController::class)->group(function () {
+    Route::get('view', 'index')
+        ->name('index_forum');
+    Route::get('popular', 'index_popular')
+        ->name('index_popular');
+    Route::get('no-replies', 'index_no_replies')
+        ->name('index_no_replies');
+    Route::get('detail/{id}', 'index_detail')
+        ->name('index_detail');
+    Route::get('search', 'index_search')
+        ->name('index_search_forum');
+    Route::post('add', 'addForum')
+        ->name('add_forum');
+    Route::post('delete', 'deleteForum')
+        ->name('delete_forum');
 });
 
-Route::prefix('comment')->controller(CommentController::class)->group(function (){
+Route::prefix('comment')->controller(CommentController::class)->group(function () {
     Route::post('add', 'addComment')
         ->name('add_comment');
     Route::post('delete', 'deleteComment')
         ->name('delete_comment');
 });
 
-Route::prefix('podcast')->controller(PodcastController::class)->group(function (){
-   Route::get('view', 'index')
-       ->name('index_podcast');
-   Route::get('play/{id}', 'index_play')
-       ->name('index_play');
-   Route::post('delete', 'delete_podcast')
-       ->name('delete_podcast');
-   Route::post('add', 'add_podcast')
-       ->name('add_podcast');
-   Route::get('edit/{$id}', 'index_edit_podcast')
-       ->name('index_edit_podcast');
-   Route::post('edit', 'edit_podcast')
-       ->name('edit_podcast');
+Route::prefix('podcast')->controller(PodcastController::class)->group(function () {
+    Route::get('view', 'index')
+        ->name('index_podcast');
+    Route::get('play/{id}', 'index_play')
+        ->name('index_play');
+    Route::post('delete', 'delete_podcast')
+        ->name('delete_podcast');
+    Route::post('add', 'add_podcast')
+        ->name('add_podcast');
+    Route::get('edit/{$id}', 'index_edit_podcast')
+        ->name('index_edit_podcast');
+    Route::post('edit', 'edit_podcast')
+        ->name('edit_podcast');
 });
 
-Route::prefix('course')->controller(CourseHeaderController::class)->group(function (){
+Route::prefix('course')->controller(CourseHeaderController::class)->group(function () {
     Route::get('view', 'index')
         ->name('index_course');
     Route::get('detail/{id}', 'index_detail')
@@ -87,22 +87,22 @@ Route::prefix('course')->controller(CourseHeaderController::class)->group(functi
         ->name('index_course_topic');
 });
 
-Route::controller(UserController::class)->group(function (){
-    Route::prefix('auth')->middleware('guest')->group(function (){
-       Route::post('login', 'login')
-           ->name('login');
-       Route::post('register', 'register')
-           ->name('register');
-       Route::post('logout', 'logout')
-           ->name('logout');
+Route::controller(UserController::class)->group(function () {
+    Route::prefix('auth')->middleware('guest')->group(function () {
+        Route::post('login', 'login')
+            ->name('login');
+        Route::post('register', 'register')
+            ->name('register');
     });
 
-    Route::prefix('profile')->middleware('auth')->group(function (){
+    Route::prefix('profile')->middleware('auth')->group(function () {
         Route::get('view/{id}', 'index_profile')
             ->name('index_profile');
         Route::post('update', 'update_profile')
             ->name('update_profile');
         Route::post('generate', 'getToken')
             ->name('generate_token');
+        Route::post('logout', 'logout')
+            ->name('logout');
     });
 });
