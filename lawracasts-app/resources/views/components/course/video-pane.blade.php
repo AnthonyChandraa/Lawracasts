@@ -1,7 +1,11 @@
 <div class="p-4 rounded-lg bg-gray-900" style="width: 1000px; height: 90vh">
 
     <div>
-        <video src="{{isset($selected) ? asset('storage/'.$selected->video_url) : ""}}" controls class="w-full h-fit"/>
+       @if(isset($selected))
+            <video src="{{isset($selected) ? asset('storage/'.$selected->video_url) : ""}}" controls class="w-full h-fit"/>
+        @else
+            <div class="bg-black" style="width: 100%; height: 70vh"></div>
+        @endif
     </div>
     <div class="w-full flex justify-between p-2">
         <div>
