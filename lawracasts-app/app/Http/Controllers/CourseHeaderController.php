@@ -66,10 +66,13 @@ class CourseHeaderController extends Controller
             'view_count' => $curr->view_count+1
         ]);
 
-        $ismyown = CourseHeader::query()->where('id', '=', $id)
+        $ismyown = false;
+        if(Auth::check()){
+            $ismyown = CourseHeader::query()->where('id', '=', $id)
                 ->where('user_id', '=', Auth::user()->id)
                 ->orderBy('created_at', 'asc')
                 ->first() != null;
+        }
 
         if(!$ismyown){
             $details = CourseDetail::query()
@@ -94,9 +97,13 @@ class CourseHeaderController extends Controller
     }
 
     public function index_play(Request $request){
-        $ismyown = CourseHeader::query()->where('id', '=', $request->input('id'))
-                ->where('user_id', '=', Auth::user()->id)
-                ->first() != null;
+        $ismyown = false;
+        if(Auth::check()){
+            $ismyown = CourseHeader::query()->where('id', '=', $id)
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->orderBy('created_at', 'asc')
+                    ->first() != null;
+        }
         $id = $request->input('id');
         if(!$ismyown){
             $details = CourseDetail::query()
@@ -154,7 +161,9 @@ class CourseHeaderController extends Controller
     public function add_course_detail(Request $request){
         $validator = Validator::make($request->all(),[
             'title' => 'required',
-            'file3' => 'file|required|max:50000'
+            'file3' => 'file|required|mimes:mp4|max:50000'
+        ],[
+            'file3.mimes' => 'The File Type Must Be mp4'
         ]);
 
         if($validator->fails()){

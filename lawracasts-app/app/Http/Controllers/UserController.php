@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -39,6 +40,7 @@ class UserController extends Controller
         }
 
         $newUser = new User();
+        $newUser->id = Str::uuid();
         $newUser->first_name = $request->input('firstname');
         $newUser->last_name = $request->input('lastname');
         $newUser->email = $request->input('email');
