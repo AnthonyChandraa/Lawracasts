@@ -99,7 +99,7 @@ class CourseHeaderController extends Controller
     public function index_play(Request $request){
         $ismyown = false;
         if(Auth::check()){
-            $ismyown = CourseHeader::query()->where('id', '=', $id)
+            $ismyown = CourseHeader::query()->where('id', '=', $request->input('id'))
                     ->where('user_id', '=', Auth::user()->id)
                     ->orderBy('created_at', 'asc')
                     ->first() != null;
