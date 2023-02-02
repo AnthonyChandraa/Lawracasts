@@ -28,11 +28,11 @@
                     <div>
                         <label for="content" class="block mb-2 text-sm font-medium text-gray-900
                         dark:text-white">Thread Description</label>
-                        <textarea id="content" name="content" rows="3" class="max-w-lg shadow-sm block w-full
+
+                    </div><textarea id="content" name="content" rows="3" class="max-w-lg shadow-sm block w-full
                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 bg-gray-600 p-2
                         text-white
                         rounded-md" placeholder="Enter Thread Description..."></textarea>
-                    </div>
                     <div>
                         <label for="topic" class="block text-sm font-medium text-white mb-2">Topic</label>
                         <select id="topic" name="topic" class="block w-full pl-3 pr-10 py-2 bg-gray-600

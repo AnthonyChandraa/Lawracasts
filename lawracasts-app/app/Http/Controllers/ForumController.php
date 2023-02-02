@@ -35,7 +35,7 @@ class ForumController extends Controller
             ->select('forums.*')
             ->groupBy('forums.id', 'forums.user_id', 'forums.title', 'forums.topic_id', 'forums.content', 'forums.view_count', 'forums.created_at', 'forums.updated_at')
             ->orderBy(DB::raw('count(\'comments.id\')'), 'desc')
-            ->orderBy('forums.view_count')
+            ->orderBy('forums.view_count', 'desc')
             ->orderBy('created_at', 'desc')
             ->paginate('5');
         for($i=0; $i<sizeof($forums) ; $i++){
@@ -113,7 +113,7 @@ class ForumController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => 'required|max:255',
             'content' => 'required|max:255',
-            'topic' => 'required|exists:topics'
+            'topic' => 'required'
         ]);
 
         if($validator->fails()){
